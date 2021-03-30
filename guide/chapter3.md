@@ -62,6 +62,7 @@ Let's get the infrastructure workflow built out.
  - [ ] Next, we will add a trigger for our workflow
 	```yaml
 	on:
+    workflow_dispatch:
 	  push:
 	    branches: [ main ]
 	    paths:
@@ -134,9 +135,9 @@ This next one is a beast, bear with us.
 	          #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
 	          <details>
 	          <summary>Show Plan</summary>
-	          ```
+	          \`\`\`
 	          ${process.env.PLAN}
-	          ```
+	          \`\`\`
 	          </details>
 	          
 	          **Pusher: \`@${{ github.actor }}\`, Action: \`${{ github.event_name }}\`**`;
@@ -176,6 +177,7 @@ name: Infrastructure
 # Only run this Workflow for pull requests on branches or pushes to 'main'.
 # Limited to commits that make changes to the infrastructure directory in the repo.
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
     paths:
@@ -228,9 +230,9 @@ jobs:
           #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
           <details>
           <summary>Show Plan</summary>
-          ```
+          \`\`\`
           ${process.env.PLAN}
-          ```
+          \`\`\`
           </details>
           
           **Pusher: \`@${{ github.actor }}\`, Action: \`${{ github.event_name }}\`**`;
@@ -273,6 +275,7 @@ As you may recall from the architecture overview, the *Block Page* app is just a
 	name: Block Page
 
 	on:
+    workflow_dispatch:
 	  push:
 	    branches: [ main ]
 	    paths:
@@ -344,6 +347,7 @@ name: Block Page
 # Only run this Workflow for pull requests on branches or pushes to 'main'.
 # Limited to commits that make changes to the service's directory in the repo.
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
     paths:
@@ -411,6 +415,7 @@ name: EDL
 # Only run this Workflow for pull requests on branches or pushes to 'main'.
 # Limited to commits that make changes to the service's directory in the repo.
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
     paths:
@@ -474,6 +479,7 @@ name: EDL Admin
 # Only run this Workflow for pull requests on branches or pushes to 'main'.
 # Limited to commits that make changes to the service's directory in the repo.
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
     paths:
@@ -536,6 +542,7 @@ name: Request Unblock
 # Only run this Workflow for pull requests on branches or pushes to 'main'.
 # Limited to commits that make changes to the service's directory in the repo.
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
     paths:
@@ -596,5 +603,15 @@ At last we will `commit` (save) our changes and then `push`  (upload) our commit
 ![Git Push](images/Git-Push.png)
 
  - [ ] Lastly, use the `Synchronize Changes` button (circle with arrows) to `push` our `commit` to GitHub. The 0 indicates that there are 0 new changes from GitHub to `pull` (*download*), and 1 new change to `push` (*upload*).
+
+### Manually Trigger the Pipelines
+The GitHub Actions Workflows for our container builds are configured to run automatically when changes are made to the service code (the app code in the `services/` folder). However, since we aren't modifying the app code right now, we will manually trigger our container build pipelines to build an initial version of our container images and push them to `Google Container Registry` (GCR).
+
+ - [ ] Go to the GitHub web interface, and open the `Actions` tab.
+ - [ ] Select each of the four container Workflows (`Block Page`, `EDL`, `EDL Admin`, and `Request Unblock`) on the left one at a time. For each, use the `Run workflow` menu on the right to manually trigger a CI/CD run.
+ - [ ] Observe the output of the Workflow run and confirm that all four complete successfully (green check).
+ - [ ] No go to the GCP portal and open `Google Container Registry` (GCR) and confirm your new images and present.
+
+
 
 ## Continue to [Chapter 4](chapter4.md) (Terraform: GCP)

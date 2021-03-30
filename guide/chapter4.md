@@ -29,7 +29,7 @@ There are two Terraform configurations that have already been provided for you i
 
 `terraform.tf` contains the basic settings for Terraform. This includes what version of the Terraform tool we want to use, and where we want to store our Terraform `state`. State is how we track what our infrastructure looks like: every time terraform makes changes, it documents the composition of the infrastructure in its state. Out of the box, Terraform will store state in a local file; for this lab we are using Terraform Cloud to store our state centrally. This configuration block tells Terraform about our Terraform Cloud Workspace.
 
- - [ ] The Terraform Cloud Organization has already been filled in for your, no need to do anything there.
+ - [ ] The Terraform Cloud Organization has already been filled in for you, no need to do anything there.
  - [ ] Go ahead and update the Workspace name to the name that was provided to you in the email with all your lab credentials.
 
 The `variables.tf` defines variables that we will use in our Terraform configurations. This makes Terraform configurations more modular and reusable (and prevents us having to copy/paste a lot!). `locals` are fixed variables that are local to to this Terraform configuration, whereas `variables` are variables that can be provided as *input* when applying this configuration. This gives us the ability to provide dynamic input when the configuration is applied.

@@ -8,7 +8,7 @@ You will need several accounts to complete the lab.
 | Google Cloud | Provided for you. Accessible via the Okta portal with the credentials you received. |
 | Terraform Cloud | Provided for you. Accessible via the Okta portal with the credentials you received. |
 | Prisma Cloud | Provided for you. Accessible via the Okta portal with the credentials you received. |
-| Okta | This account will be created on Day 3 (Thursday) |
+| Okta | You can log into the Okta Portal here: https://aebs.okta.com/app/UserHome |
 
 After you have successfully signed into the Okta portal and completed setting up your GitHub account (or if you already have one), you can continue to the next step.
 
@@ -60,6 +60,7 @@ After you have successfully signed into the Okta portal and completed setting up
  We will need a GCP Service Account to give GitHub and Terraform Cloud access to your GCP environment.
 
 - [ ] Log into your GCP account.
+- [ ] You may need to select your GCP Project from the `Project Picker` at the top of the screen (immediately to the right of the `Google Cloud Platform` logo). With the `Project Picker` open, select the `ALL` tab and then click on your Lab Id.
 - [ ] Go to the `IAM & Admin` page (use the hamburger menu at the top left). Once there you will see a "devops@" account listed on the IAM tab; this is your service account.
 - [ ] Go to the `Service Accounts` tab.
 - [ ] Click the `...` next to the DevOps account and select `Manage Keys`.
