@@ -31,27 +31,33 @@ variable "gcp_project_id" {
 }
 variable "domain" {
   type        = string
+  default     = ""
   description = "Lab Domain"
 }
 
 # Okta Variables
 variable "okta_domain" {
   type        = string
+  default     = ""
   description = "Okta Domain"
 }
 variable "okta_user_app_client_id" {
   type        = string
+  default     = ""
   description = "Okta User App Client Id"
 }
 variable "okta_user_app_client_secret" {
   type        = string
+  default     = ""
   description = "Okta User App Client Secret"
 }
 variable "okta_admin_app_client_id" {
   type        = string
+  default     = ""
   description = "Okta Admin App Client Id"
 }
 variable "okta_admin_app_client_secret" {
   type        = string
+  default     = ""
   description = "Okta Admin App Client Secret"
 }
