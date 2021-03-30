@@ -1,4 +1,4 @@
-# 3. Terraform: Google Cloud
+# 4. Terraform: Google Cloud
 ### Terraform Overview
 Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform is an Infrastructure-as-Code (IaC) tool: we can design our infrastructure in a text-based configuration language and then commit those configurations to the same Git repository as the code for our app.
 
