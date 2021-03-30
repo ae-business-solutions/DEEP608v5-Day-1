@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>EDL Manager</title>
+ <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+    
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    #requests {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #requests td, #requests th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #requests tr:nth-child(even){background-color: #f2f2f2;}
+
+    #requests tr:hover {background-color: #ddd;}
+
+    #requests th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h3>EDL Manager</h3>
+  <div class="container">
+    <table id="requests">
+      <tr>
+        <th>Request ID</th>
+        <th>User</th>
+        <th>URL</th>
+        <th>Reason</th>
+        <th>Actions</th>
+      </tr>
+    </table>
+  </div>
+  <script>
+    requestTable = document.querySelector("table")
+    fetch("/requests")
+      .then(response => response.json())
+      .then(requestList => {
+        requestList.forEach(request => {
+          row = document.createElement("tr")
+          requestid = document.createElement("td")
+          requestid.innerHTML = request.id
+          user = document.createElement("td")
+          user.innerHTML = request.user
+          url = document.createElement("td")
+          url.innerHTML = request.url
+          reason = document.createElement("td")
+          reason.innerHTML = request.reason
+          actions = document.createElement("td")
+          actions.innerHTML = '<form method="post" action="/accept" style="display: inline;"><input type="hidden" name="requestid" value="' + request.id + '"><button type="submit">Accept</button></form>&nbsp;'
+          actions.innerHTML += '<form method="post" action="/reject" style="display: inline;"><input type="hidden" name="requestid" value="' + request.id + '"><button type="submit">Reject</button></form>'
+          row.appendChild(requestid)
+          row.appendChild(user)
+          row.appendChild(url)
+          row.appendChild(reason)
+          row.appendChild(actions)
+          requestTable.appendChild(row)
+        })
+      })
+  </script>
+</body>

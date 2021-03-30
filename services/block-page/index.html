@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/login/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=.85">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>Web Page Blocked</title>
+    <style>
+        body {
+            background-color: #e8ebeb;
+            font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+            color: #070808;
+        }
+
+        a:link {
+            color: #0ba4e8;
+        }
+
+        b,
+        strong {
+            font-weight: 500;
+        }
+
+        p {
+            line-height: 1.2em;
+        }
+
+        button {
+            overflow: visible;
+        }
+
+        button, input, optgroup, select, textarea {
+            color: inherit;
+            font: inherit;
+            margin: 0;
+        }
+
+        .center {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #dError,
+        .msg {
+            color: #d94949;
+            margin: 20px 0;
+        }
+
+        fieldset .msg {
+            margin: 0;
+        }
+
+        #content {
+            padding-top: 100px;
+        }
+
+        #content img {
+            display: block;
+            margin: auto;
+        }
+
+        #content h1 {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 43px;
+            text-align: center;
+            letter-spacing: 0.1px;
+            color: #070808;
+            margin: 10px auto 8px;
+        }
+
+        #content > p {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 640px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .response {
+            background-color: #fff;
+            color: #5a636b;
+            margin: 24px auto 0;
+            padding: 20px;
+            font-size: 16px;
+            width: 800px;
+            border: 1px solid #c8cbce;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+
+        .response p {
+            margin: 0 0 1em;
+        }
+
+        .response p:last-child {
+            margin: 0;
+        }
+
+        .response b {
+            color: #070808;
+        }
+
+        .response .msg b {
+            color: #d94949;
+        }
+
+        .response form td,
+        .response form input {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .loading {
+            margin: 2em auto 1em;
+        }
+    </style>
+</head>
+
+<body>
+<div id="content" class="container">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABgCAYAAACDgFV6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAntSURBVHgB7Z1tTFvXGcef6xewAYMxmIQkgIFAAozEQBfRNpucKpMCW7d0UvahUzT2pV8TVLXZtGlxtlb7soikH/ohnZRMUaVuWbR2qkq0dcN0aUOrZWFElBcDpqOBYAI2YLDB4LvzXGrKi1/OheO3a/8kx9fnHGPfv895nuc8594TDgJgNpu1vnTNOY6HFgDeAAkCz3HmX//85UsQQxSBCvm0rL/U1VabTMefAW1ONsQ7nf/6BKwjNnAtuM2/+u1liKWo8q0Fv/zN707rcnN+1vLjH4FKlQ6JwBf/G4MZhxOqD1dCackBU0llDXT+42+dEANk2wpkYGr8Zh0kKjiqThxvxJ56EWLANkGB47WqdBUkMrEUdZOgNpvNkJGekQMSwC/qxdcvX4coIjilQZvtHOfjzd5VXltYWBC08aPxCbDbp6D2G9XC8aT9yab6emMtKBRrfg7t2tb6Y099bUoiUb8VFJXQAq9fhku/ePmnEAU467DtIs/zZn/Bvc/uw5GaKjAeqdnUcGVlBUbJSRiKi9ZFixf8Xv5gWSmYvvXMtnrL3U/A8lHXjWiIKuOBb6FpOEl6ZjyKSQP2VNO3G1uiMfxlwIOBpiGGJV7vCiQq0RJVJqaxUhmfvdPt8VC1i4ao1ArVErsqBTY6Ks4razWbW53AEFE9VCr4eyqvXO0wm9u0wJCkFBRZE/VpI2tRqQXFuA9DJykRCVGpBZ2bd8W1l1fI5eCcnQOxsBaVmduen58HVmg0GlHtFST6yM/Pg+6eXmg8Vg97CwpEvf8rR2W0fHQPRT2xG0fFRNBP//2APP4DrPjeqZNQZiihbm8oKoIhMlOqPlQB12/+EUoNxURUPYhFq80xOp2zuxKVWlClQh40Ds3P14Ge9JClpWVggT4vT1R7Q0kRPJqYEI5R1DmXSxBYLFmZanC5XEaOX8UEUWQFPXyoMmhdOelN5SJ6FGtwOnysoV4QccbhgPT0tO1tSGdQysOf7tT0DPi8q7BTEm9iHgS1WsVk8vHgYS8suHc+0pI2DsX0Iz5YQ91D+wcGoaS4WOgJgXgyPS3KhmYTT67RZIHUoBbUuxLcruzEy6MXR28uNZjY0LLSYtHD58C+vSBFmAiKYc4Pv98MiQROHiIxlaYWVJerjdt86E7IjpD9plZo/75CSBGepA2bIgW1oFJL3dmnpmIbh/YNWIVl2mBx6Dym9+JQdPy+atX27xypVCQTL4O9t48E/vEITiAOk4RJtGAiqJCceKoeUkgoOSKWVBzKmFQcmiCk4lDGUAtKe7lLohDzOHRo2BYyDr3z939CPLJHr4c6Y23AukjEosy8zKnvPAeJhEKhJF7eBaxJ2VDGJK2gaLoisQRDHzYVFga1n4kIzu8DzfF3C3UP1emYXvUnWVI2lDHUQx7j0FBD5GFvH8QjOGUONMvDewZmZhxwsLwUWMIsDt1ToCdxnRfijWjftcLs0wr0+ZAiZUOZk4pDGUM95EPZz0Qk5nGolMSMJMycUiRSYSxQq9VC6BQtqAXF/KEuNzdgGIJrM/G6jKwh3ymQoDGPQ/HedE2WJqCgWBbNpdp4JhU2MSYlKGOSdl0el5EjMVWmFrSK2MhE3M0hGHgue3Zwc1g4qIe8lMSMJCkbyhhqQTFwl9I1om63JyI5XGpBE30Tl2iRGvKMSQnKGFGuO9TljLiFRjRNwv79hbtKv+G54Bzf/fAhuO7dA3dPDyxPTkLzwgJWj55pasLnbjz28fx75NlSdefOaLi/y2SbIXRWUbevPOyKRYsFlt5+G+yZmZBeVgaakydBuW8fyDb8SN7xcaN3YsLoGRk5vXj/Pgw2N99Y9fkuhRKWGxwa2fTVgu19JxW8pBeOv/Ya+UF4yCYiopg0rDocsEBEnfvwQ6eM465UfPBBwF10k8qGEjFg7JVXQF1VBfqXXqIWE5GT1CX+AIUXLmhlWq15sKmpLVC7pNlmCMV8cv065L34ImQdPw47BYXde+ECZDQ0nCeidmytp7ahuM1QAbGTwaagLDL2Ol1uRNZ5cJjb33wT9pw7JwgSCp/Hg7YzbO/NPXMGn0yDAG2V7e2t/nJm9ymxyNgLNxIwFnTObgf7q6+C9vnnw4qJQk6+8YZwnNnQ4BctKDnkby6NjJwfaGrqPNTe/i6WMbtPKR4z9gsLi/D4T7cgo7gYh2jY9u7PP990nBumPUYEKPrUtWttD0wmS53F4hS16plIt9XgaHncPwDQ1QU5J8XvHOFzu6naoWkgD4NKpTqPr6kFxXX5RErhoU1fHeiHjFJD2KG+W9D7k1DqB3gsybBpfZ++T7sgo7oaIg32UjL8jSPNzSWSFBQ3wxKwWiGtvByigaqmBpZ5/gVqQTF3iDnEeAe/o9A7v/wS0goLN00lIwl+FsEguR7qWktuoLLAqdUQLWTksziez5GcoEvLbDY0FAs6Po7j6Hsoprri9fqljbDaIVIsGGaRNN+sqLuRcUaE1ziNfjEmlNUbj6yHUhvL/dTWVK9ftReoHpem/Zuv4hLL0PBI0Pp5lwv6+gfD1uf6Q6Q8nZAhEsNGe6sQGWoJn8Vxo6ICSxSvQK8XHlsJVk5bjyMg1K4Qmqwsqnrr8Ff7huryYIXMy3FuTuuY1MRTY4oOxcl69lkQg8dmIxlBvltyi+0ymQx8Pt/aiwMHYHl4WAhpaEA7iAmUnbBC8gAEyzYbqkxTgmcpcW/l3jQ9rj0K8x9/DGLAHk0SHqLeg+1XHI5uzORvE7SI2Mr+wWFIVDam/7jGRliamMCTpXovZpvGzWZMdoDj1i2gBX804pCu4vE2QfF6Hxw279x+Dx6T1FeikUXWiNbBONT0HLU4W7NNVO/p7QVPb+8o6Z038HVAG/r0sQboITOjd27/FZzOWUg0Tn/3FGRmZgjH3IkTsPRZF7ju3g2bqVeTeT+2w2GfSZHuw54/+/77eLieYOaswyMOsl4l7TtjZ6aBu9IG+rNnhZXNUKCYqzMzYdshdpKM9jx6hKugZn+ZjOe5bpA6JITiz/4Ept56S7CTocAQi0Z0tLNEzD9sFBPh+qxWk5yTd0AyQBIm/O+vQXZdnZDD3An4g0zfvAleh+Pq4fb281vrOfxnwDpsJvPQmPw/mFGHDH/+9p9BMTYmiEqzNIKgvXQRb05srJN49Fa/E9oK5z/o67MZZHLezMnhqNRsKjlJw7ZCknzmLR2gINmpNJIgziDBv1yrBblOJwx7FBBnTNgj0eOTWBOFvOrxeK7g2lGIz5I+QmdR8h0BhSVmAIaswPf8V0j5AXFIsLhIcgF5a2HXwQrgKiu7V0dtL1S1to6G+6ykENRP3+BQC4mxLwYUNgA8XiiG1zJVHrwBlCSVoH7QEXOc7LQMZEeJbEZS5DdxTqIIXm3XyfO+d6sqKiwgkv8DR1QQUUMZmhsAAAAASUVORK5CYII=" alt="Error">
+    <h1>Web Page Blocked</h1>
+    <p>The web page you are trying to visit has been blocked in accordance with company policy. Please click <a href="">here</a> to submit a request to reevaluate this web page if you feel this is in error.</p>
+    <div class="response">
+        <p><b>User:</b> John Doe</p>
+        <p><b>URL:</b> https://www.youtube.com/</p>
+        <p><b>Category:</b> Endless Time Sink</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<h3>Web Filter Re-evaluation Request</h3>
+
+<div class="container">
+  <form action="/request" method="post">
+    <input type="hidden" id="user" name="user" value="{{user}}">
+    <label for="url">URL</label>
+    <input type="text" id="url" name="url" placeholder="Website address...">
+    <label for="reason">Reason</label>
+    <textarea id="reason" name="reason" placeholder="The reason this URL should be unblocked..." style="height:200px"></textarea>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
